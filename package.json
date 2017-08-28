@@ -1,7 +1,7 @@
 {
-  "name": "rr-aizhk-orders-front",
+  "name": "react-starter",
   "version": "1.0.0",
-  "description": "RR AIZHK Orders Front",
+  "description": "Fullstack Starter Project with React & Node JS",
   "main": "server.js",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.local.js --inline --progress --port=8090",
@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.at-consulting.ru:aizhk/rr-aizhk-orders-front.git"
+    "url": "git@github.com:sani-banani/react-starter.git"
   },
-  "author": "akonovalov@at-consulting.ru",
-  "license": "ISC",
+  "author": "a.konovalov88@gmail.com",
+  "license": "MIT",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
