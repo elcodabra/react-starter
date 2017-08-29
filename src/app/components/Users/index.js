@@ -1,11 +1,11 @@
 import React from 'react';
-import axios from 'axios';
+import BackendService from '../../services/backend';
 
 class Users extends React.Component {
   constructor(props) {
     super(props);
+    this.backendService = new BackendService();
     this.state = {user: {}};
-
     this.getUser.bind(this);
   }
 
@@ -18,7 +18,7 @@ class Users extends React.Component {
   }
 
   getUser(props) {
-    axios.get(`http://jsonplaceholder.typicode.com/users/${props.match.params.id}`)
+    this.backendService.getUser(props.match.params.id)
       .then((response) => {
         if (response.data) {
           this.setState({ user: response.data });
