@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class Users extends React.Component {
   constructor(props) {
@@ -17,7 +18,15 @@ class Users extends React.Component {
   }
 
   getUser(props) {
-    this.setState({ user: props });
+    axios.get(`http://jsonplaceholder.typicode.com/users/${props.match.params.id}`)
+      .then((response) => {
+        if (response.data) {
+          this.setState({ user: response.data });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
