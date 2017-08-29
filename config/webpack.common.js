@@ -12,7 +12,7 @@ const entryPoints = ['inline','polyfills','sw-register','styles','vendor','main'
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, '../src/app/app.jsx'),
+    main: path.resolve(__dirname, '../src/app/main.jsx'),
     styles: [
       './src/styles.css',
       './src/assets/css/fonts.css',

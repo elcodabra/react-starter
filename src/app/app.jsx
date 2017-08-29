@@ -1,19 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import WelcomeLogo from '../assets/img/WelcomeToSite.jpg';
+import Header from './components/Header';
+import Routes from './routes';
 
-const Application = () => {
-
-  const title = 'react-starter-app';
-
+const App = () => {
   return (
     <div style={{textAlign:'center'}}>
-      <h1>
-        Welcome to {title}!
-      </h1>
-      <img src={WelcomeLogo} />
+      <Header />
+      <Routes />
     </div>
   )
 }
 
-ReactDOM.render(<Application />, document.getElementById('app-root'));
+export default App;
