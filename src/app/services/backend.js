@@ -3,8 +3,12 @@ import axios from 'axios';
 class BackendService {
   constructor() {}
 
-  getUser(id) {
-    return axios.get(`http://jsonplaceholder.typicode.com/users/${id}`)
+  getOrder(id) {
+    return axios.get(`http://jsonplaceholder.typicode.com/posts/${id}`)
+  }
+
+  getOrders() {
+    return axios.get('http://jsonplaceholder.typicode.com/posts')
   }
 }
 
