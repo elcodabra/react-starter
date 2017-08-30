@@ -13,3 +13,20 @@ a {color:#006fb8;
   -moz-transition: all 0.3s ease;
 }
 button, a { cursor: pointer; }
+
+input, button {
+  transition: all 0.5s ease;
+  padding: .5em;
+  margin: .5em;
+  font-size: inherit;
+  border-radius: 3px;
+
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  width: 20em;
+}
+
+button {
+  width: 10em;
+}
