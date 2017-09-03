@@ -1,5 +1,6 @@
 import React from 'react';
 import BackendService from '../../../services/backend';
+import OrderForm from './OrderForm';
 
 class CreateOrEditOrder extends React.Component {
   constructor(props) {
@@ -52,8 +53,8 @@ class CreateOrEditOrder extends React.Component {
     });
   }
 
-  handleSubmit() {
-    console.log(this.state);
+  handleSubmit(values) {
+    console.log(values);
   }
 
   render() {
@@ -68,32 +69,11 @@ class CreateOrEditOrder extends React.Component {
             Create Order
           </h1>
         }
-        <div>
-          <div>
-            <label>
-              name:
-              <input
-                type="text"
-                name="title"
-                value={this.state.order.title}
-                onChange={this.handleInputChange} />
-            </label>
-          </div>
-          <div>
-            <label>
-              body:
-              <input
-                type="text"
-                name="body"
-                value={this.state.order.body}
-                onChange={this.handleInputChange} />
-            </label>
-          </div>
-          <div>
-            <button onClick={this.handleSubmit}>{ this.props.match.params.id ? 'Save' : 'Add' }</button>
-          </div>
-          {/*{JSON.stringify(this.state.order)}*/}
-        </div>
+        { this.state.order.id ?
+          <OrderForm onSubmit={this.handleSubmit} initialValues={{title: '11', body: '11'}} />
+          :
+          <OrderForm onSubmit={this.handleSubmit} />
+        }
       </div>
     )
   }

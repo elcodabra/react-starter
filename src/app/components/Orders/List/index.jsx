@@ -17,7 +17,7 @@ class ListOrders extends React.Component {
     return (
       <div>
         <div>
-          <h1>List Orders:</h1>
+          <h1>List Orders:<Link to={"/orders/create"}>New</Link></h1>
           <ul>
             {orders &&
               orders.slice(0, 10).map((item, index) =>
