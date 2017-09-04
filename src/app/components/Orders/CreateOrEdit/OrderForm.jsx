@@ -1,8 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-
-const required = value => value ? undefined : 'Required';
-const number = value => value && isNaN(Number(value)) ? 'Number' : undefined;
+import { required, number } from '../../../services/validation';
 
 const renderField = ({
   input,
