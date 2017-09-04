@@ -16,7 +16,6 @@ class CreateOrEditOrder extends React.Component {
 
     this.getOrder = this.getOrder.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   componentDidMount() {
@@ -39,18 +38,6 @@ class CreateOrEditOrder extends React.Component {
           console.log(error);
         });
     }
-  }
-
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      order: Object.assign({}, this.state.order, {
-        [name]: value
-      })
-    });
   }
 
   handleSubmit(values) {
