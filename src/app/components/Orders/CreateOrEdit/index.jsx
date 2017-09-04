@@ -69,11 +69,7 @@ class CreateOrEditOrder extends React.Component {
             Create Order
           </h1>
         }
-        { this.state.order.id ?
-          <OrderForm onSubmit={this.handleSubmit} initialValues={{title: '11', body: '11'}} />
-          :
-          <OrderForm onSubmit={this.handleSubmit} />
-        }
+        <OrderForm onSubmit={this.handleSubmit} initialValues={this.state.order} enableReinitialize="true" />
       </div>
     )
   }
