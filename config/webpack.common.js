@@ -10,13 +10,14 @@ const { CommonsChunkPlugin } = require('webpack').optimize;
 const nodeModules = path.resolve(__dirname, '../node_modules');
 const entryPoints = ['inline','polyfills','sw-register','styles','vendor','main'];
 
+const extractLess = new ExtractTextPlugin({
+  filename: "[name].[contenthash].css",
+  disable: process.env.NODE_ENV === "development"
+});
+
 module.exports = {
   entry: {
     main: path.resolve(__dirname, '../src/app/main.jsx'),
-    styles: [
-      './src/styles.css',
-      './src/assets/css/fonts.css',
-    ]
   },
 
   resolve: {
@@ -44,33 +45,23 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: [
-          path.resolve(__dirname, '../src/app')
-        ],
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: {
-            loader: 'css-loader',
-            options: {
-              sourceMap: false
-            }
-          }
+        loader: extractLess.extract({
+          use: [{
+            loader: "css-loader"
+          }],
+          fallback: "style-loader"
         })
       },
       {
-        test: /\.css$/,
-        include: [
-          path.resolve(__dirname, '../src/app')
-        ],
-        use: [
-          'to-string-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: false
-            }
-          }
-        ]
+        test: /\.less$/,
+        loader: extractLess.extract({
+          use: [{
+            loader: "css-loader"
+          }, {
+            loader: "less-loader"
+          }],
+          fallback: "style-loader"
+        })
       }
     ]
   },
