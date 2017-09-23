@@ -11,8 +11,6 @@ class CreateOrEditOrder extends React.Component {
       }
     };
 
-    this.backendService = new BackendService();
-
     this.getOrder = this.getOrder.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,7 +26,7 @@ class CreateOrEditOrder extends React.Component {
 
   getOrder(props) {
     if (props.match.params.id) {
-      this.backendService.getOrder(encodeURIComponent(props.match.params.id))
+      BackendService.getOrder(encodeURIComponent(props.match.params.id))
         .then((response) => {
           if (response.data) {
             this.setState({ order: response.data });

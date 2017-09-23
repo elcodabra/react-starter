@@ -1,14 +1,21 @@
-import axios from 'axios';
+import ApiRequests from './request';
 
-class BackendService {
-  constructor() {}
+const url = "http://jsonplaceholder.typicode.com";
+
+const apiRequests = new ApiRequests();
+
+const BackendService = {
+
+  getUrl() {
+    return url;
+  },
 
   getOrder(id) {
-    return axios.get(`http://jsonplaceholder.typicode.com/posts/${id}`)
-  }
+    return apiRequests.get(`${this.getUrl()}/posts/${id}`)
+  },
 
   getOrders() {
-    return axios.get('http://jsonplaceholder.typicode.com/posts')
+    return apiRequests.get(`${this.getUrl()}/posts`)
   }
 }
 

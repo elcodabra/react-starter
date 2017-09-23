@@ -5,7 +5,6 @@ import BackendService from '../../../services/backend';
 class ListOrders extends React.Component {
   constructor(props) {
     super(props);
-    this.backendService = new BackendService();
     this.getOrders.bind(this);
   }
 
@@ -19,13 +18,15 @@ class ListOrders extends React.Component {
 
   getOrders(props) {
     // TODO: refactor props for size & limit
-    this.backendService.getOrders()
+    BackendService.getOrders()
       .then((response) => {
+        console.log('resolve 2')
         if (response.data) {
           this.setState({ orders: response.data });
         }
       })
       .catch((error) => {
+        console.log('error 2')
         console.log(error);
       });
   }
