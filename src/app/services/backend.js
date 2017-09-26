@@ -1,15 +1,17 @@
-import axios from 'axios';
+import ApiRequests from './request';
 
-class BackendService {
-  constructor() {}
+const request = new ApiRequests();
+
+const BackendService = {
 
   getOrder(id) {
-    return axios.get(`http://jsonplaceholder.typicode.com/posts/${id}`)
-  }
+    return request.get(`http://jsonplaceholder.typicode.com/posts/${id}`)
+  },
 
   getOrders() {
-    return axios.get('http://jsonplaceholder.typicode.com/posts')
-  }
+    return request.get('http://jsonplaceholder.typicode.com/posts')
+  },
+
 }
 
 export default BackendService;
